@@ -1,4 +1,3 @@
-from tabnanny import check
 import numpy as np
 import plotly.express as px
 import dash
@@ -90,7 +89,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA],
                 meta_tags=[{'name': 'viewport',
                             'content': 'width=device-width, initial-scale=1.0'}]
                 )
-
+server=app.server
 
 app.layout = dbc.Container([
 
@@ -148,7 +147,7 @@ def map(chips, map_type,prod):
             color='#ff9900',
             opacity=1
         ),
-        text=df["id"],
+        text=df["merchant_name"],
         # hovertemplate='ID: {}',
         hoverinfo='text'
     ))
@@ -160,10 +159,10 @@ def map(chips, map_type,prod):
         mode='markers',
         marker=go.scattermapbox.Marker(
             size=7,
-            color='blue',
+            color='#4e42f5',
             opacity=0.7
         ),
-        text=data["id"],
+        text=data["merchant_name"],
         hoverinfo='text',
         name=f"Selected {prod}",
     ))
