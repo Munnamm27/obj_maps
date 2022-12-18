@@ -139,8 +139,8 @@ def map(chips, map_type,prod):
 
     fig.add_trace(go.Scattermapbox(
         name=f"all {prod}",
-        lat=df['lat'],
-        lon=df['lng'],
+        lat=df['lat'].values,
+        lon=df['lng'].values,
         mode='markers',
         marker=go.scattermapbox.Marker(
             size=6,
@@ -154,8 +154,8 @@ def map(chips, map_type,prod):
 
     fig.add_trace(go.Scattermapbox(
 
-        lat=data['lat'],
-        lon=data['lng'],
+        lat=data['lat'].values,
+        lon=data['lng'].values,
         mode='markers',
         marker=go.scattermapbox.Marker(
             size=7,
@@ -189,4 +189,4 @@ def map(chips, map_type,prod):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8050)
+    app.run_server(debug=True, port=8050)
